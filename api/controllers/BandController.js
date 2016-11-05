@@ -13,15 +13,27 @@ class BandController {
 
     /** */
 	getBandByID(req, res) {
-        console.log("Se pidio una banda por el id");
-        return "{id:" + res.id+ "}";
+        band.getBandByID(req.params.bandId)
+        .then(documents => res.json(documents || {}))
+            .catch(error => res.json({error: error.message}));
     }
 
+
+
     /** */
-	getBandArtistByIDBand(req, res) {
-        console.log("Se pidio una banda por el id");
-        return "{id:" + res.id+ "}";
+	getArtistsByIDBand(req, res) {
+        band.getArtistsByIDBand(req.params.bandId)
+        .then(documents => res.json(documents || {}))
+            .catch(error => res.json({error: error.message}));
     }
+
+ /** */
+	getAlbumsByIDBand(req, res) {
+        band.getAlbumsByIDBand(req.params.bandId)
+        .then(documents => res.json(documents || {}))
+            .catch(error => res.json({error: error.message}));
+    }
+    
 
 
 }
