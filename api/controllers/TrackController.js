@@ -11,6 +11,7 @@ class TrackController {
     }
 
     getTrackByID(req, res) {
+    	console.log(req);
         track.getTrackByID(req.params.trackId)
             .then(documents => res.json(documents))
             .catch(error => res.json({ error: error.message }));

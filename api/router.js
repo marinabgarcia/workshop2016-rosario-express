@@ -22,36 +22,36 @@ router.get('/bands', bandController.getList);
     Método: GET
     Descripción: Retorna una banda en particular
 */
-router.get('/bands/:bandId', bandController.getBandByID() );
+router.get('/bands/:bandId', function(req, res, next) { bandController.getBandByID(req, res) });
 
 /*Ruta: /bands/:bandId/artists
     Método: GET
     Descripción: Retorna los artistas pertenecientes a una banda
 */
-router.get('/bands/:bandId/artists', bandController.getArtistsByIDBand());
+router.get('/bands/:bandId/artists', function(req, res, next) { bandController.getArtistsByIDBand(req, res)});
 
 /*Ruta: /bands/:bandId/albums
     Método: GET
     Descripción: Retorna la lista de los albumnes de una banda
  */
-router.get('/bands/:bandId/albums', bandController.getAlbumsByIDBand());
+router.get('/bands/:bandId/albums', function(req, res, next) { bandController.getAlbumsByIDBand(req, res)});
 
 /*Ruta: /tracks/:trackId
    Método: GET
    Descripción: Retorna los datos de un track en particular
 */
-router.get('/tracks/:trackId', trackController.getTrackByID());
+router.get('/tracks/:trackId', function(req, res, next) { trackController.getTrackByID(req, res)});
 
 /*Ruta: /tracks/:trackId/comments
     Método: GET
     Descripción: Retorna los comentarios asignados a un track en particular
 */
-router.get('/tracks/:trackId', trackController.getCommentsByIDTrack());
+router.get('/tracks/:trackId', function(req, res, next) { trackController.getCommentsByIDTrack(req, res)});
 
 /*Ruta: /comments
     Método: POST
     Descripción: Agrega un comentario a un track
 */
-router.post('/tracks/:trackId', trackController.addComment());
+router.post('/tracks/:trackId', function(req, res, next) { trackController.addComment(req, res)});
 
 module.exports = router;
