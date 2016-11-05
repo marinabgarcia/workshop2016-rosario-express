@@ -8,6 +8,10 @@ class TrackModel {
     getList () {
         return dataBase.find({docType: docTypes.TRACK})
     }
+
+    getTrackByID (idTrack){
+    	return dataBase.findOne({_id: idTrack, docType: docTypes.TRACK})
+    } 
 }
 module.exports.TrackModel = TrackModel;
 module.exports.instance = new TrackModel();

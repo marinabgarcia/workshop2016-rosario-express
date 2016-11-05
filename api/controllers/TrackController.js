@@ -4,10 +4,17 @@ const track = require('../models/TrackModel').instance;
 
 class TrackController {
 
-    getList (req, res) {
+    getList(req, res) {
         track.getList()
             .then(documents => res.json(documents))
-            .catch(error => res.json({error: error.message}));
+            .catch(error => res.json({ error: error.message }));
+    }
+
+    getTrackByID(req, res) {
+        track.getTrackByID(req.params.trackId)
+            .then(documents => res.json(documents))
+            .catch(error => res.json({ error: error.message }));
+
     }
 }
 exports.TrackController = TrackController;
